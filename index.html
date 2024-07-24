@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockiozo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .return-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.return-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.return-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.return-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00796b; /* Teal color */
+    margin-bottom: 10px;
+}
+
+.return-label {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.performance-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.performance-item {
+    flex: 1 1 200px;
+    max-width: 200px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.performance-item:hover {
+    transform: translateY(-5px);
+}
+
+.performance-item h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.performance-item p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #00796b; /* Teal color */
+}
+
+.performance-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .portfolio-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00796b; /* Teal color for titles */
+        }
+        
+        /* .return-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .return-section h2 {
+            font-size: 2rem;
+            color: #00796b; /* Teal color for return section title */
+        /* }
+        
+        .return-value {
+            font-size: 2rem;
+            margin-top: 10px;
+            color: #4caf50; /* Green color for positive returns */
+        } */ */
+      /* General Body and Section Spacing */
+    body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    section {
+        padding: 60px 20px; /* Default padding for sections */
+    }
+
+    /* Hero Section Styles */
+    .hero {
+        position: relative;
+        height: 100vh;
+        background: linear-gradient(to right, #4caf50, #00897b); /* Gradient background */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+        z-index: 1;
+    }
+
+    .hero-content {
+        z-index: 2;
+        max-width: 800px;
+        padding: 20px;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        margin: 0;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin: 20px 0;
+        animation: fadeInUp 2s ease-out;
+    }
+
+    .btn {
+        background-color: #f56c6c;
+        color: #fff;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn:hover {
+        background-color: #d43f3f;
+        transform: translateY(-3px); /* Slight lift effect */
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* About Us Section Styles */
+    #about {
+        position: relative;
+        padding: 40px 20px; /* Reduced padding for a more compact look */
+        text-align: center;
+        color: #fff; /* White text color for contrast */
+        background: linear-gradient(to right, #4caf50, #00897b); /* Gradient background */
+        overflow: hidden; /* Ensure no overflow */
+    }
+
+    #about::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Gradient overlay */
+        z-index: 1;
+    }
+
+    #about .container {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    #about h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #ffeb3b; /* Yellow color for the heading */
+        position: relative;
+        font-family: 'Montserrat', sans-serif; /* Elegant font for heading */
+        text-transform: uppercase;
+    }
+
+    #about p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #ddd; /* Lighter grey for the description */
+        font-family: 'Open Sans', sans-serif; /* Clean font for description */
+    }
+
+    .decorative-line {
+        width: 100px;
+        height: 3px;
+        background: #ffeb3b; /* Yellow color for the decorative line */
+        margin: 20px auto;
+    }
+
+    .about-card {
+        background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        margin: 20px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover {
+        transform: translateY(-5px); /* Slight lift effect */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 3rem; /* Adjust heading size for smaller screens */
+        }
+
+        .hero p {
+            font-size: 1.2rem; /* Adjust paragraph size for smaller screens */
+        }
+
+        #about h2 {
+            font-size: 2rem; /* Adjust heading size for smaller screens */
+        }
+
+        #about p {
+            font-size: 1rem; /* Adjust paragraph size for smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2.5rem; /* Further adjust heading size for very small screens */
+        }
+
+        .hero p {
+            font-size: 1rem; /* Further adjust paragraph size for very small screens */
+        }
+
+        #about h2 {
+            font-size: 1.5rem; /* Further adjust heading size for very small screens */
+        }
+
+        #about p {
+            font-size: 0.9rem; /* Further adjust paragraph size for very small screens */
+        }
+    }        /* Market Ticker Tape Section Styles */
+    #ticker-tape {
+        background-color: #004d40; /* Deep teal background for a professional look */
+        padding: 40px 20px;
+        color: #fff; /* White text color for contrast */
+        text-align: center;
+    }
+
+    #ticker-tape .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #ticker-tape h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #ffffff; /* White color for the heading */
+    }
+
+    .tradingview-widget-container {
+        display: inline-block;
+        width: 100%;
+        background: #ffffff; /* White background for the widget */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+        overflow: hidden; /* Ensure content fits within rounded corners */
+    }
+
+    .tradingview-widget-container__widget {
+        padding: 20px;
+    }
+
+    .tradingview-widget-container script {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        #ticker-tape h2 {
+            font-size: 2rem; /* Adjust heading size for smaller screens */
+        }
+
+        .tradingview-widget-container {
+            width: 100%; /* Full width on smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        #ticker-tape h2 {
+            font-size: 1.5rem; /* Further adjust heading size for very small screens */
+        }
+
+        .tradingview-widget-container__widget {
+            padding: 10px; /* Reduce padding on smaller screens */
+        }
+    }
+        /* Our Services Section Styles */
+    #services {
+        background-color: #fafafa; /* Light grey background for a clean look */
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    #services .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #services h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #004d40; /* Deep teal color for the heading */
+    }
+
+    .services-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px; /* Space between service items */
+    }
+
+    .service {
+        background-color: #fff; /* White background for service items */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+        padding: 40px 20px;
+        width: calc(33.333% - 20px); /* Responsive width */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: #333; /* Text color inside service items */
+        text-align: center;
+        position: relative; /* For icon positioning */
+    }
+
+    .service:hover {
+        transform: translateY(-5px); /* Slight lift effect */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        color: #00796b; /* Teal color for icons */
+        margin-bottom: 20px;
+        transition: color 0.3s ease;
+    }
+
+    .service:hover .service-icon {
+        color: #004d40; /* Darker teal color on hover */
+    }
+
+    .service h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #00796b; /* Teal color for service titles */
+        margin-bottom: 15px;
+    }
+
+    .service p {
+        font-size: 1rem;
+        color: #666; /* Darker grey for descriptions */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .service {
+            width: calc(50% - 20px); /* Adjust width for smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .service {
+            width: 100%; /* Full width on very small screens */
+        }
+    }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f56c6c;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .hamburger .line {
+            background-color: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            transition: all 0.3s;
+        }
+
+        /* .hero {
+            position: relative;
+            height: 100vh;
+            background: url('your-hero-background-image.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            animation: fadeInUp 2s ease-out;
+        } */
+
+        .btn {
+            background-color: #f56c6c;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #d43f3f;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #about, #services, #partners, #testimonials, #refer {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #004d40;
+        }
+
+        .service, .partner, .testimonial {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover, .partner:hover, .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00796b;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-position {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid, .partners-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                padding: 15px 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .service, .partner, .testimonial {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service, .partner, .testimonial {
+                width: 100%;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer input, footer textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        footer button {
+            background-color: #f56c6c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        footer button:hover {
+            background-color: #d43f3f;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="logo">Stockiozo</div>
+            <ul class="nav-links" role="menubar">
+                <li role="menuitem"><a href="#home">Home</a></li>
+                <li role="menuitem"><a href="#about">About Us</a></li>
+                <li role="menuitem"><a href="#services">Services</a></li>
+                <li role="menuitem"><a href="#partners">Business Partners</a></li>
+                <li role="menuitem"><a href="#testimonials">Testimonials</a></li>
+                <li role="menuitem"><a href="https://forms.gle/rPPf316aSarvwm75A">Refer Program</a></li>
+                <li role="menuitem"><a href="https://forms.gle/rPPf316aSarvwm75A">Contact Us</a></li>
+            </ul>
+            <div class="hamburger" aria-label="Menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="home">
+        <section id="ticker-tape">
+            <div class="container">
+                <h2>Market Ticker Tape</h2>
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                            {
+                                "proName": "FOREXCOM:SPXUSD",
+                                "title": "S&P 500"
+                            },
+                            {
+                                "proName": "FOREXCOM:NSXUSD",
+                                "title": "Nasdaq 100"
+                            },
+                            {
+                                "proName": "FX_IDC:EURUSD",
+                                "title": "EUR/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "BTC/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:ETHUSD",
+                                "title": "ETH/USD"
+                            }
+                        ],
+                        "colorTheme": "light",
+                        "isTransparent": false,
+                        "displayMode": "adaptive",
+                        "locale": "en"
+                    }
+                    </script>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Stockiozo</h1>
+                <p>Your trusted partner for Equity Investment, loans, and credit cards.</p>
+                <a href="#services" class="btn">Explore Our Services</a>
+            </div>
+        </section>
+        <div class="container">
+            <h1>Top Stock Picks </h1>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <h3>Indus Tower </h3>
+                    <p>Indus Towers Limited is an Indian telecommunications infrastructure company offering passive infrastructure services to mobile network operators and other wireless services providers..</p>
+                    <!-- Additional content for stock 1 -->
+                </div>
+                
+                <div class="portfolio-item">
+                    <h3>Nvdia </h3>
+                    <p>Nvidia Corporation is an American multinational corporation and technology company headquartered in Santa Clara, California, and incorporated in Delaware. .</p>
+                    <!-- Additional content for stock 2 -->
+                </div>
+                
+                <div class="portfolio-item">
+                    <h3>Amar Raja Battery </h3>
+                    <p>Amara Raja Energy & Mobility is India's largest automotive batteries and allied products manufacturer with brands that are the preferred choice with retail customers as well as OEMs. The products are exported to over 50 countries worldwide.</p>
+                    <!-- Additional content for stock 3 -->
+                </div>
+                
+                <!-- Add more portfolio items as needed -->
+            </div>
+            
+            <section class="return-section" id="return">
+                <div class="container">
+                    <h2>Portfolio Returns</h2>
+                    <div class="return-value">+102.5%</div>
+                    <div class="return-label">Since last quarter</div>
+                    <div class="performance-details">
+                        <div class="performance-item">
+                            <h4>Total Return</h4>
+                            <p>+22.5%</p>
+                            <p class="performance-description">Year-to-date performance</p>
+                        </div>
+                        <div class="performance-item">
+                            <h4>Net Assets</h4>
+                            <p>$1,250,000</p>
+                            <p class="performance-description">Total assets under management</p>
+                        </div>
+                        <div class="performance-item">
+                            <h4>Investors</h4>
+                            <p>500+</p>
+                            <p class="performance-description">Growing investor base</p>
+                        </div>
+                        <div class="performance-item">
+                            <h4>Strategy</h4>
+                            <p>Focus on sustainable growth</p>
+                            <p class="performance-description">Long-term investment approach</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        
+        <section id="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <div class="decorative-line"></div>
+                <div class="about-card">
+                    <p>We are committed to providing the best financial services. Our team of experts is here to assist you with all your Equity Investment, loan, and credit card needs.</p>
+                </div>
+                <div class="about-card">
+                    <p>Our mission is to empower our clients with the knowledge and tools necessary to achieve financial success. We offer tailored solutions to meet your unique needs.</p>
+                </div>
+                <div class="about-card">
+                    <p>With years of experience in the industry, we are dedicated to helping you navigate the complexities of financial planning and investment.</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service">
+                        <div class="service-icon">&#128200;</div> <!-- Example icon for Equity Investment -->
+                        <h3>Equity Investment</h3>
+                        <p>We offer reliable Equity Investment services to help you make the best investments.</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-icon">&#128181;</div> <!-- Example icon for Loans -->
+                        <h3>Loans</h3>
+                        <p>Our loan services are designed to provide you with the best financial solutions.</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-icon">&#128179;</div> <!-- Example icon for Credit Cards -->
+                        <h3>Credit Cards</h3>
+                        <p>Explore our range of credit card options to suit your financial needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="partners">
+            <div class="container">
+                <h2>Business Partners</h2>
+                <div class="partners-grid">
+                    <div class="partner">
+                        <div class="partner-content">
+                            <p class="partner-name">Axis Direct</p>
+                            <p class="partner-desc">Your trusted investment partner.</p>
+                        </div>
+                    </div>
+                    <div class="partner">
+                        <div class="partner-content">
+                            <p class="partner-name">IDFC First Bank</p>
+                            <p class="partner-desc">Innovative banking solutions.</p>
+                        </div>
+                    </div>
+                    <div class="partner">
+                        <div class="partner-content">
+                            <p class="partner-name">ICICI Bank</p>
+                            <p class="partner-desc">Your financial growth partner.</p>
+                        </div>   
+                    </div>
+                    
+                    <div class="partner">
+                    <div class="partner-content">
+                        <p class="partner-name">IND MONEY</p>
+                        <p class="partner-desc">Unlock Global Investment.</p>
+                    </div>
+                </div>
+                <div class="partner">
+                    <div class="partner-content">
+                        <p class="partner-name">Kucoin</p>
+                        <p class="partner-desc">Keep Bitcoin in your pocket.</p>
+                    </div>   
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <p class="testimonial-quote">"Stockiozo has been a game-changer for my investment strategy. Their insights and services are top-notch!"</p>
+                        <p class="testimonial-name">John Doe</p>
+                        <p class="testimonial-position">Investor</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-quote">"The loan services provided by Stockiozo were seamless and hassle-free. Highly recommend!"</p>
+                        <p class="testimonial-name">Jane Smith</p>
+                        <p class="testimonial-position">Entrepreneur</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-quote">"Excellent customer support and a wide range of credit card options. I am very satisfied with their services."</p>
+                        <p class="testimonial-name">Emily Johnson</p>
+                        <p class="testimonial-position">Freelancer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="refer" class="refer-program">
+            <div class="container">
+                <h2>Join Our Refer Program</h2>
+                <p>Refer a friend and earn rewards when they sign up with us! It's simple—just share your unique referral link and start earning.</p>
+                <a href="https://forms.gle/rPPf316aSarvwm75A" class="btn">Get Started</a>
+            </div>
+        </section>
+    </main>
+    
+    
+            <p>&copy; 2024 Stockiozo. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
